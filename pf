@@ -1,0 +1,108 @@
+#!/bin/bash
+
+mkdir -p "$HOME"/.pixelfiles
+
+# ------------ Installing Pacman Packages  ------------
+
+# Installing Yay
+git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
+cd /tmp/yay-bin || return
+makepkg -si
+cd "$HOME" || return
+
+# Installing Packages from the Arch Repos
+sudo pacman -S lxappearance lxpolkit sddm zsh starship exa zoxide ranger cmus slock ripgrep fd emacs neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntumono-nerd ttf-ubuntu-font-family kvantum unzip brightnessctl noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk alsa-utils bat
+
+# Installing Packages from the AUR
+yay -S picom-jonaburg-git nordzy-cursors cli-visualizer
+
+# ---------------- Enabling  Services  ----------------
+
+sudo systemctl enable sddm # Enable the SDDM (Simple Desktop Display Manager)
+sudo systemctl enable NetworkManager # Enabling NetworkManager
+
+# ------------------ Cloning  Repos -------------------
+git clone --recurse https://github.com/mohannadk28/pixelfiles/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
+
+git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.wallpapers
+git clone https://github.com/mohannadk28/scripts-pixelfiles "$HOME"/.scripts
+
+# ------------ Building Suckless Software -------------
+
+# Installing Dependences for Suckless Software
+sudo pacman -S libx11 libxft harfbuzz
+
+# DWM
+git clone https://github.com/mohannadk28/pixelfiles/dwm-pixelfiles "$HOME"/.pixelfiles/dwm-pixelfiles
+cd "$HOME"/.pixelfiles/dwm-pixelfiles || return
+sudo make clean install
+cd "$HOME" || return
+
+# ST
+git clone https://github.com/mohannadk28/pixelfiles/st-pixelfiles "$HOME"/.pixelfiles/st-pixelfiles
+cd "$HOME"/.pixelfiles/st-pixelfiles || return
+sudo make clean install
+cd "$HOME" || return
+
+# DWMBlocks
+git clone https://github.com/mohannadk28/pixelfiles/dwmblocks-pixelfiles "$HOME"/.pixelfiles/dwmblocks-pixelfiles
+cd "$HOME"/.pixelfiles/dwmblocks-pixelfiles || return
+sudo make clean install
+cd "$HOME" || return
+
+# DMENU
+git clone https://github.com/mohannadk28/pixelfiles/dmenu-pixelfiles "$HOME"/.pixelfiles/dmenu-pixelfiles
+cd "$HOME"/.pixelfiles/dmenu-pixelfiles || return
+sudo make clean install
+cd "$HOME" || return
+
+# ------------------ Symbolic Links -------------------
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/feh "$HOME"/.config/feh
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/gimp "$HOME"/.config/gimp
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/mpv "$HOME"/.config/mpv
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/qutebrowser "$HOME"/.config/qutebrowser
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/ranger "$HOME"/.config/ranger
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/vis "$HOME"/.config/vis
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/zathura "$HOME"/.config/zathura
+
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/starship.toml "$HOME"/.config/starship.toml
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/picom.conf "$HOME"/.config/picom.conf
+
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/.doom.d "$HOME"/.doom.d
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/.SpaceVim.d "$HOME"/.SpaceVim.d
+
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.dwm "$HOME"/.dwm
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.zsh "$HOME"/.zsh
+
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.zshrc "$HOME"/.zshrc
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.gitconfig "$HOME"/.gitconfig
+
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.nanorc "$HOME"/.nanorc
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.nvmrc "$HOME"/.nvmrc
+
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.Xresources "$HOME"/.Xresources
+ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.conkyrc "$HOME"/.conkyrc
+
+# ---------------- Installing  Themes -----------------
+
+# Installing Nord GTK Theme
+mkdir -p "$HOME"/.themes
+cd "$HOME"/.themes || return
+wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-bluish-accent-standard-buttons-v40.tar.xz
+tar -xf  Nordic-bluish-accent-standard-buttons-v40.tar.xz
+rm -rf  Nordic-bluish-accent-standard-buttons-v40.tar.xz
+
+# Installing MateriaNordDark
+git clone https://github.com/tonyfettes/materia-nord-kvantum.git /tmp/materia-nord-kvantum 
+sudo mv /tmp/materia-nord-kvantum/Kvantum/MateriaNordDark /usr/share/Kvantum
+rm -rf /tmp/materia-nord-kvantum
+
+# ---------------- Installing Editors -----------------
+
+# SpaceVim
+curl -sLf https://spacevim.org/install.sh | bash
+
+# DOOM Emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME"/.emacs.d
+"$HOME"/.emacs.d/bin/doom install
+
