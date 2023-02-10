@@ -14,6 +14,7 @@ My Configs for Archlinux, DWM, St, Dmenu, qutebrowser and more !! :D
 5. [Wallpapers](https://github.com/mohannadk28/wallpapers-pixelfiles)
 6. [Dotfiles](https://github.com/mohannadk28/dotfiles-pixelfiles)
 7. [Scripts](https://github.com/mohannadk28/scripts-pixelfiles)
+8. [Sounds](https://github.com/mohannadk28/sounds-pixelfiles)
 
 ---
 

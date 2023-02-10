@@ -27,6 +27,8 @@ git clone --recurse https://github.com/mohannadk28/pixelfiles/dotfiles-pixelfile
 git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.wallpapers
 git clone https://github.com/mohannadk28/scripts-pixelfiles "$HOME"/.scripts
 
+git clone https://github.com/mohannadk28/pixelfiles/sounds-pixelfiles "$HOME"/.pixelfiles/sounds-pixelfiles
+
 # ------------ Building Suckless Software -------------
 
 # Installing Dependences for Suckless Software
