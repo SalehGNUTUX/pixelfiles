@@ -9,16 +9,24 @@ git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 cd /tmp/yay-bin || return
 makepkg -si
 cd "$HOME" || return
+rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S lxappearance lxpolkit sddm zsh starship exa zoxide ranger cmus slock ripgrep fd emacs neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntumono-nerd ttf-ubuntu-font-family kvantum unzip brightnessctl noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk alsa-utils bat
+sudo pacman -S lxpolkit zsh starship exa zoxide ranger firefox pcmanfm cmus slock ripgrep fd neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntumono-nerd kvantum unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
 
 # Installing Packages from the AUR
-yay -S picom-jonaburg-git nordzy-cursors cli-visualizer
+yay -S picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora
+
+# Installing Almarai Arabic Fonts
+mkdir -p "$HOME"/.local/share/fonts
+cd "$HOME"/.local/share/fonts || return
+wget https://fonts.google.com/download?family=Almarai
+unzip Almarai.zip
+rm -rf Almari
+cd "$HOME" || return
 
 # ---------------- Enabling  Services  ----------------
 
-sudo systemctl enable sddm # Enable the SDDM (Simple Desktop Display Manager)
 sudo systemctl enable NetworkManager # Enabling NetworkManager
 
 # ------------------ Cloning  Repos -------------------
@@ -59,31 +67,9 @@ sudo make clean install
 cd "$HOME" || return
 
 # ------------------ Symbolic Links -------------------
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/feh "$HOME"/.config/feh
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/gimp "$HOME"/.config/gimp
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/mpv "$HOME"/.config/mpv
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/qutebrowser "$HOME"/.config/qutebrowser
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/ranger "$HOME"/.config/ranger
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/vis "$HOME"/.config/vis
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/zathura "$HOME"/.config/zathura
 
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/starship.toml "$HOME"/.config/starship.toml
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/picom.conf "$HOME"/.config/picom.conf
-
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/.doom.d "$HOME"/.doom.d
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.config/.SpaceVim.d "$HOME"/.SpaceVim.d
-
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.dwm "$HOME"/.dwm
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.zsh "$HOME"/.zsh
-
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.zshrc "$HOME"/.zshrc
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.gitconfig "$HOME"/.gitconfig
-
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.nanorc "$HOME"/.nanorc
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.nvmrc "$HOME"/.nvmrc
-
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.Xresources "$HOME"/.Xresources
-ln -sf "$HOME"/.pixelfiles/dotfiles-pixelfiles/.conkyrc "$HOME"/.conkyrc
+bash "$HOME"/.pixelfiles/dotfiles-pixelfiles/setup.sh
+ln -sf "$HOME"/.pixelfiles/dwm-pixelfiles/.dwm "$HOME"/.local/share/dwm
 
 # ---------------- Installing  Themes -----------------
 
