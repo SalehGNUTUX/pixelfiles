@@ -12,10 +12,10 @@ cd "$HOME" || return
 rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S lxpolkit zsh starship exa zoxide ranger firefox pcmanfm cmus slock ripgrep fd neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntumono-nerd kvantum unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
+sudo pacman -S lxpolkit zsh starship exa zoxide ranger firefox pcmanfm cmus slock neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntumono-nerd kvantum unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
 
 # Installing Packages from the AUR
-yay -S picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora
+yay -S picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
 
 # Installing Almarai Arabic Fonts
 mkdir -p "$HOME"/.local/share/fonts
@@ -24,10 +24,6 @@ wget https://fonts.google.com/download?family=Almarai
 unzip Almarai.zip
 rm -rf Almari
 cd "$HOME" || return
-
-# ---------------- Enabling  Services  ----------------
-
-sudo systemctl enable NetworkManager # Enabling NetworkManager
 
 # ------------------ Cloning  Repos -------------------
 git clone --recurse https://github.com/mohannadk28/pixelfiles/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
@@ -73,24 +69,8 @@ ln -sf "$HOME"/.pixelfiles/dwm-pixelfiles/.dwm "$HOME"/.local/share/dwm
 
 # ---------------- Installing  Themes -----------------
 
-# Installing Nord GTK Theme
-mkdir -p "$HOME"/.themes
-cd "$HOME"/.themes || return
-wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-bluish-accent-standard-buttons-v40.tar.xz
-tar -xf  Nordic-bluish-accent-standard-buttons-v40.tar.xz
-rm -rf  Nordic-bluish-accent-standard-buttons-v40.tar.xz
-
 # Installing MateriaNordDark
 git clone https://github.com/tonyfettes/materia-nord-kvantum.git /tmp/materia-nord-kvantum 
 sudo mv /tmp/materia-nord-kvantum/Kvantum/MateriaNordDark /usr/share/Kvantum
 rm -rf /tmp/materia-nord-kvantum
-
-# ---------------- Installing Editors -----------------
-
-# SpaceVim
-curl -sLf https://spacevim.org/install.sh | bash
-
-# DOOM Emacs
-git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME"/.emacs.d
-"$HOME"/.emacs.d/bin/doom install
 
