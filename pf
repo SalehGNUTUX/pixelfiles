@@ -12,7 +12,7 @@ cd "$HOME" || return
 rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S lxpolkit zsh starship exa zoxide ranger firefox pcmanfm cmus slock neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntumono-nerd kvantum unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
+sudo pacman -S lxsession-gtk3 zsh starship exa zoxide ranger firefox pcmanfm cmus slock neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
 
 # Installing Packages from the AUR
 yay -S picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
@@ -26,12 +26,12 @@ rm -rf Almari
 cd "$HOME" || return
 
 # ------------------ Cloning  Repos -------------------
-git clone --recurse https://github.com/mohannadk28/pixelfiles/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
+git clone --recurse https://github.com/mohannadk28/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
 
-git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.wallpapers
-git clone https://github.com/mohannadk28/scripts-pixelfiles "$HOME"/.scripts
+git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.pixelfiles/wallpapers-pixelfiles
+git clone https://github.com/mohannadk28/scripts-pixelfiles "$HOME"/.pixelfiles/scripts-pixelfiles
 
-git clone https://github.com/mohannadk28/pixelfiles/sounds-pixelfiles "$HOME"/.pixelfiles/sounds-pixelfiles
+git clone https://github.com/mohannadk28/sounds-pixelfiles "$HOME"/.pixelfiles/sounds-pixelfiles
 
 # ------------ Building Suckless Software -------------
 
@@ -39,25 +39,25 @@ git clone https://github.com/mohannadk28/pixelfiles/sounds-pixelfiles "$HOME"/.p
 sudo pacman -S libx11 libxft harfbuzz
 
 # DWM
-git clone https://github.com/mohannadk28/pixelfiles/dwm-pixelfiles "$HOME"/.pixelfiles/dwm-pixelfiles
+git clone https://github.com/mohannadk28/dwm-pixelfiles "$HOME"/.pixelfiles/dwm-pixelfiles
 cd "$HOME"/.pixelfiles/dwm-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # ST
-git clone https://github.com/mohannadk28/pixelfiles/st-pixelfiles "$HOME"/.pixelfiles/st-pixelfiles
+git clone https://github.com/mohannadk28/st-pixelfiles "$HOME"/.pixelfiles/st-pixelfiles
 cd "$HOME"/.pixelfiles/st-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # DWMBlocks
-git clone https://github.com/mohannadk28/pixelfiles/dwmblocks-pixelfiles "$HOME"/.pixelfiles/dwmblocks-pixelfiles
+git clone https://github.com/mohannadk28/dwmblocks-pixelfiles "$HOME"/.pixelfiles/dwmblocks-pixelfiles
 cd "$HOME"/.pixelfiles/dwmblocks-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # DMENU
-git clone https://github.com/mohannadk28/pixelfiles/dmenu-pixelfiles "$HOME"/.pixelfiles/dmenu-pixelfiles
+git clone https://github.com/mohannadk28/dmenu-pixelfiles "$HOME"/.pixelfiles/dmenu-pixelfiles
 cd "$HOME"/.pixelfiles/dmenu-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
