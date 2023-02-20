@@ -1,11 +1,14 @@
-#!/bin/sh
+[universe]
+Server = https://universe.artixlinux.org/$arch
+Server = https://mirror1.artixlinux.org/universe/$arch
+Server = https://mirror.pascalpuffke.de/artix-universe/$arch
+Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/$arch
+Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
+Server = https://ftp.crifo.org/artix-universe/
 
-echo "[universe]" | sudo tee -a /etc/pacman.conf
-echo "Server = https://universe.artixlinux.org/$arch" | sudo tee -a /etc/pacman.conf
-echo "Server = https://mirror1.artixlinux.org/universe/$arch" | sudo tee -a /etc/pacman.conf
-echo "Server = https://mirror.pascalpuffke.de/artix-universe/$arch" | sudo tee -a /etc/pacman.conf
-echo "Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/$arch" | sudo tee -a /etc/pacman.conf
-echo "Server = https://mirror1.cl.netactuate.com/artix/universe/$arch" | sudo tee -a /etc/pacman.conf
-echo "Server = https://ftp.crifo.org/artix-universe/" | sudo tee -a /etc/pacman.conf
-sudo pacman -S artix-archlinux-support
+[community]
+Include = /etc/pacman.d/mirrorlist-arch
+
+[extras]
+Include = /etc/pacman.d/mirrorlist-arch
 
