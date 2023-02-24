@@ -12,10 +12,10 @@ cd "$HOME" || return
 rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S xorg xorg-xinit lxsession-gtk3 zsh starship exa zoxide ranger firefox pcmanfm cmus slock neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
+sudo pacman -S xorg xorg-xinit nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger firefox pcmanfm cmus slock neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
 
 # Installing Packages from the AUR
-yay -S picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
+yay -S network-manager-git picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
 
 # Installing Almarai Arabic Fonts
 mkdir -p "$HOME"/.local/share/fonts
