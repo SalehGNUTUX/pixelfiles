@@ -12,10 +12,10 @@ cd "$HOME" || return
 rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S xorg xorg-xinit python-pip python nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger pcmanfm cmus slock neovim shotgun hacksaw qutebrowser python-adblock wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow python-pywal xdotool
+sudo pacman -S libx11 libxft harfbuzz xorg xorg-xinit python-pip python nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger pcmanfm cmus slock neovim shotgun hacksaw qutebrowser python-adblock wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow python-pywal xdotool
 
 # Installing Packages from the AUR
-yay -S network-manager-git papirus-icon-theme-git picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
+yay -S networkmanager-dmenu-git papirus-icon-theme-git picom-jonaburg-git cli-visualizer ttf-sora
 
 # Installing Pip Packages
 pip install inotify-simple python_daemon psutil python-prctl
@@ -29,53 +29,54 @@ rm -rf Almari
 cd "$HOME" || return
 
 # ------------------ Cloning  Repos -------------------
-git clone --recurse https://github.com/mohannadk28/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
 
-git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.pixelfiles/wallpapers-pixelfiles
 git clone https://github.com/mohannadk28/scripts-pixelfiles "$HOME"/.pixelfiles/scripts-pixelfiles
 
+# Config Files
+git clone --recurse https://github.com/mohannadk28/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
+git clone https://github.com/mohannadk28/nvim-pixefiles "$HOME"/.pixelfiles/nvim-pixelfiles
+
+# Assets
+git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.pixelfiles/wallpapers-pixelfiles
 git clone https://github.com/mohannadk28/sounds-pixelfiles "$HOME"/.pixelfiles/sounds-pixelfiles
+
+# Suckless Software
+git clone https://github.com/mohannadk28/dwmblocks-pixelfiles "$HOME"/.pixelfiles/dwmblocks-pixelfiles
+git clone https://github.com/mohannadk28/dmenu-pixelfiles "$HOME"/.pixelfiles/dmenu-pixelfiles
+git clone https://github.com/mohannadk28/sxiv-pixelfiles "$HOME"/.pixelfiles/sxiv-pixelfiles
+git clone https://github.com/mohannadk28/dwm-pixelfiles "$HOME"/.pixelfiles/dwm-pixelfiles
+git clone https://github.com/mohannadk28/st-pixelfiles "$HOME"/.pixelfiles/st-pixelfiles
 
 # ------------ Building Suckless Software -------------
 
-# Installing Dependences for Suckless Software
-sudo pacman -S libx11 libxft harfbuzz
-
 # DWM
-git clone https://github.com/mohannadk28/dwm-pixelfiles "$HOME"/.pixelfiles/dwm-pixelfiles
 cd "$HOME"/.pixelfiles/dwm-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # ST
-git clone https://github.com/mohannadk28/st-pixelfiles "$HOME"/.pixelfiles/st-pixelfiles
 cd "$HOME"/.pixelfiles/st-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # DWMBlocks
-git clone https://github.com/mohannadk28/dwmblocks-pixelfiles "$HOME"/.pixelfiles/dwmblocks-pixelfiles
 cd "$HOME"/.pixelfiles/dwmblocks-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # DMENU
-git clone https://github.com/mohannadk28/dmenu-pixelfiles "$HOME"/.pixelfiles/dmenu-pixelfiles
 cd "$HOME"/.pixelfiles/dmenu-pixelfiles || return
+sudo make clean install
+cd "$HOME" || return
+
+# SXIV 
+cd "$HOME"/.pixelfiles/sxiv-pixelfiles || return
 sudo make clean install
 cd "$HOME" || return
 
 # ------------------ Symbolic Links -------------------
 
-bash "$HOME"/.pixelfiles/dotfiles-pixelfiles/setup.sh
 ln -sf "$HOME"/.pixelfiles/dwm-pixelfiles/.dwm "$HOME"/.local/share/dwm
-
-# ---------------- Installing  Themes -----------------
-
-
-
-# Installing MateriaNordDark
-git clone https://github.com/tonyfettes/materia-nord-kvantum.git /tmp/materia-nord-kvantum 
-sudo mv /tmp/materia-nord-kvantum/Kvantum/MateriaNordDark /usr/share/Kvantum
-rm -rf /tmp/materia-nord-kvantum
+ln -sf "$HOME"/.pixelfiles/nvim-pixelfiles "$HOME"/.config/nvim
+bash "$HOME"/.pixelfiles/dotfiles-pixelfiles/setup.sh
 
