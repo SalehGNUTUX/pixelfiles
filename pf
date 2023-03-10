@@ -12,10 +12,13 @@ cd "$HOME" || return
 rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S xorg xorg-xinit nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger firefox pcmanfm cmus slock neovim shotgun hacksaw qutebrowser wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow
+sudo pacman -S xorg xorg-xinit python-pip python nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger pcmanfm cmus slock neovim shotgun hacksaw qutebrowser python-adblock wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow python-pywal xdotool
 
 # Installing Packages from the AUR
-yay -S network-manager-git picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
+yay -S network-manager-git papirus-icon-theme-git picom-jonaburg-git nordzy-cursors cli-visualizer ttf-sora nordic-bluish-accent-theme
+
+# Installing Pip Packages
+pip install inotify-simple python_daemon psutil python-prctl
 
 # Installing Almarai Arabic Fonts
 mkdir -p "$HOME"/.local/share/fonts
@@ -68,6 +71,8 @@ bash "$HOME"/.pixelfiles/dotfiles-pixelfiles/setup.sh
 ln -sf "$HOME"/.pixelfiles/dwm-pixelfiles/.dwm "$HOME"/.local/share/dwm
 
 # ---------------- Installing  Themes -----------------
+
+
 
 # Installing MateriaNordDark
 git clone https://github.com/tonyfettes/materia-nord-kvantum.git /tmp/materia-nord-kvantum 
