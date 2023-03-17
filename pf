@@ -12,7 +12,7 @@ cd "$HOME" || return
 rm -rf /tmp/yay-bin
 
 # Installing Packages from the Arch Repos
-sudo pacman -S libx11 libxft harfbuzz xorg xorg-xinit python-pip python nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger pcmanfm cmus slock neovim shotgun hacksaw qutebrowser python-adblock wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow python-pywal xdotool
+sudo pacman -S materia-gtk-theme libx11 libxft harfbuzz xorg xorg-xinit python-pip python nitrogen conky lxsession-gtk3 zsh starship exa zoxide ranger pcmanfm cmus slock neovim shotgun hacksaw qutebrowser python-adblock wget curl mpv feh ttf-ubuntu-mono-nerd kvantum ttf-firacode-nerd unzip brightnessctl ttf-joypixels noto-fonts-cjk alsa-utils bat glow python-pywal xdotool
 
 # Installing Packages from the AUR
 yay -S networkmanager-dmenu-git papirus-icon-theme-git picom-jonaburg-git cli-visualizer ttf-sora
