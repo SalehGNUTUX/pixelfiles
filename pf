@@ -78,5 +78,12 @@ cd "$HOME" || return
 
 ln -sf "$HOME"/.pixelfiles/dwm-pixelfiles/.dwm "$HOME"/.local/share/dwm
 ln -sf "$HOME"/.pixelfiles/nvim-pixelfiles "$HOME"/.config/nvim
+ln -sf "$HOME"/.pixelfiles/sxiv-pixelfiles/.sxiv "$HOME"/.config/sxiv
+
 bash "$HOME"/.pixelfiles/dotfiles-pixelfiles/setup.sh
+
+# ----------------- Installing Neovim -----------------
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+nvim -c "PackerSync"
 
