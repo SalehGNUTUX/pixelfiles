@@ -34,7 +34,7 @@ git clone https://github.com/mohannadk28/scripts-pixelfiles "$HOME"/.pixelfiles/
 
 # Config Files
 git clone --recurse https://github.com/mohannadk28/dotfiles-pixelfiles "$HOME"/.pixelfiles/dotfiles-pixelfiles
-git clone https://github.com/mohannadk28/nvim-pixefiles "$HOME"/.pixelfiles/nvim-pixelfiles
+git clone https://github.com/mohannadk28/nvim-pixelfiles "$HOME"/.pixelfiles/nvim-pixelfiles
 
 # Assets
 git clone https://github.com/mohannadk28/wallpapers-pixelfiles "$HOME"/.pixelfiles/wallpapers-pixelfiles

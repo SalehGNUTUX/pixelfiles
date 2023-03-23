@@ -6,47 +6,43 @@ My Configs for Archlinux, DWM, St, Dmenu, qutebrowser and more !! :D
 
 ---
 
-## Repos
+## Repositories
 1. [DWM Build](https://github.com/mohannadk28/dwm-pixelfiles)
 2. [St Build](https://github.com/mohannadk28/st-pixelfiles)
 3. [Dmenu Build](https://github.com/mohannadk28/dmenu-pixelfiles)
 4. [DWMBlocks Build](https://github.com/mohannadk28/dwmblocks-pixelfiles)
-5. [Wallpapers](https://github.com/mohannadk28/wallpapers-pixelfiles)
-6. [Dotfiles](https://github.com/mohannadk28/dotfiles-pixelfiles)
-7. [Scripts](https://github.com/mohannadk28/scripts-pixelfiles)
-8. [Sounds](https://github.com/mohannadk28/sounds-pixelfiles)
+5. [SXIV Build](https://github.com/mohannadk28/sxiv-pixelfiles)
+6. [Neovim Config](https://github.com/mohannadk28/nvim-pixelfiles)
+7. [Wallpapers](https://github.com/mohannadk28/wallpapers-pixelfiles)
+8. [Dotfiles](https://github.com/mohannadk28/dotfiles-pixelfiles)
+9. [Scripts](https://github.com/mohannadk28/scripts-pixelfiles)
+10. [Sounds](https://github.com/mohannadk28/sounds-pixelfiles)
 
 ---
 
-## Configs for
-1. dwm
-2. st
-3. dmenu
-4. dwmblocks
-5. qutebrowser
-6. conky
-7. SpaceVim (Vim and NeoVim)
-8. DOOM emacs
-9. nano
-10. picom
-11. feh and mpv (Vim Keybinds)
-12. ranger
-13. zathura
-14. starship
-15. nvm (Node Version Manager)
-16. zsh
-17. tabliss
+## Note for Artix Users
+
+you will have to enable the Arch Linux Repos for This Script to work if you didn't enable The Arch Repos Some Packages will not install therefor the Installation process will fail
 
 ---
 
-## Install
+## Installation
+
+to install Pixelfiles You will have to:-
 1. Clone the pixelfiles Repo
 ```sh
 git clone https://github.com/mohannadk28/pixelfiles
 ```
-1. Run the `pf` script
+2. Run the `pf` script
 ```sh
 ./pf
 ```
-1. reboot
-2. Congrats You Installed Pixelfiles :D
+3. reboot
+4. Congrats You Installed Pixelfiles :D
+
+---
+
+## Inspration
+
+This project was Highly Inspired by [DTOS](https://gitlab.com/dtos/dtos)
+
