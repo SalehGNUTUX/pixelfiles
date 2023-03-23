@@ -2,7 +2,7 @@
 
 My Configs for Archlinux, DWM, St, Dmenu, qutebrowser and more !! :D
 
-![alt a Preview of a Desktop Runing Pixelfiles Configs](./prev.png "a Preview of a Desktop Runing Pixelfiles Configs")
+![alt a Preview of a Desktop Runing Pixelfiles Configs](./prev.gif "a Preview of a Desktop Runing Pixelfiles Configs")
 
 ---
 
